@@ -8,9 +8,9 @@ class SplashController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("splash")
+
         if SecureDataStore.shared.getToken() != nil {
-            // go to heroes
+            navigationController?.pushViewController(HeroesListBuilder().build(), animated: true)
         } else {
             navigationController?.pushViewController(LoginBuilder().build(), animated: true)
         }

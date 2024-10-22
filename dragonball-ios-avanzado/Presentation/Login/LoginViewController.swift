@@ -12,6 +12,8 @@ final class LoginViewController: UIViewController {
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
         super.init(nibName: "LoginView", bundle: Bundle(for: type(of: self)))
+        
+        self.navigationItem.setHidesBackButton(true, animated:true)
     }
     
     required init?(coder: NSCoder) {
@@ -32,8 +34,7 @@ final class LoginViewController: UIViewController {
             switch state {
             case .success:
                 self?.renderSuccess()
-                print("login successfull")
-                //self?.navigationController?.setViewControllers([HeroesListBuilder().build()], animated: true)
+                self?.navigationController?.setViewControllers([HeroesListBuilder().build()], animated: true)
             case .error(let reason):
                 self?.renderError(reason)
             case .loading:
