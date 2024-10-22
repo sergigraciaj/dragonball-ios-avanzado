@@ -6,12 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6AADB8CB2CC81D05008256E0 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6AADB8CA2CC81D05008256E0 /* KeychainSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		6A7135892CC8089100C1BC74 /* dragonball-ios-avanzado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dragonball-ios-avanzado.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		6A71359B2CC8089300C1BC74 /* Exceptions for "dragonball-ios-avanzado" folder in "dragonball-ios-avanzado" target */ = {
+		6A7135CB2CC8180700C1BC74 /* Exceptions for "dragonball-ios-avanzado" folder in "dragonball-ios-avanzado" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Supporting Files/Info.plist",
@@ -24,7 +28,7 @@
 		6A71358B2CC8089100C1BC74 /* dragonball-ios-avanzado */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				6A71359B2CC8089300C1BC74 /* Exceptions for "dragonball-ios-avanzado" folder in "dragonball-ios-avanzado" target */,
+				6A7135CB2CC8180700C1BC74 /* Exceptions for "dragonball-ios-avanzado" folder in "dragonball-ios-avanzado" target */,
 			);
 			path = "dragonball-ios-avanzado";
 			sourceTree = "<group>";
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AADB8CB2CC81D05008256E0 /* KeychainSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = "dragonball-ios-avanzado";
 			packageProductDependencies = (
+				6AADB8CA2CC81D05008256E0 /* KeychainSwift */,
 			);
 			productName = "dragonball-ios-avanzado";
 			productReference = 6A7135892CC8089100C1BC74 /* dragonball-ios-avanzado.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 6A7135802CC8089100C1BC74;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6AADB8C92CC81D05008256E0 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6A71358A2CC8089100C1BC74 /* Products */;
 			projectDirPath = "";
@@ -341,6 +350,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6AADB8C92CC81D05008256E0 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 24.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6AADB8CA2CC81D05008256E0 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6AADB8C92CC81D05008256E0 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6A7135812CC8089100C1BC74 /* Project object */;
 }
