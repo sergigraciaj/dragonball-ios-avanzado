@@ -15,7 +15,6 @@ final class GetAllHeroesUseCase: GetAllHeroesUseCaseContract {
         let localHeroes = storeDataProvider.fetchHeroes(filter: filter)
         
         if localHeroes.isEmpty {
-            print("call api")
             GetHeroesAPIRequest(name: "")
                 .perform { [weak self] result in
                     switch result {
@@ -36,7 +35,6 @@ final class GetAllHeroesUseCase: GetAllHeroesUseCaseContract {
                     }
                 }
         }   else {
-            print("call core data")
             let heroes = localHeroes.map({Hero(moHero: $0)})
             completion(.success(heroes))
         }

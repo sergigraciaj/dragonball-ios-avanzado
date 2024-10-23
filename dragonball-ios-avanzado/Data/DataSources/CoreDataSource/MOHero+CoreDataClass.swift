@@ -17,5 +17,21 @@ extension MOHero {
     @NSManaged public var info: String?
     @NSManaged public var favorite: Bool
     @NSManaged public var photo: String?
+    @NSManaged public var locations: Set<MOLocation>?
 }
 
+extension MOHero {
+
+    @objc(addLocationsObject:)
+    @NSManaged public func addToLocations(_ value: MOLocation)
+
+    @objc(removeLocationsObject:)
+    @NSManaged public func removeFromLocations(_ value: MOLocation)
+
+    @objc(addLocations:)
+    @NSManaged public func addToLocations(_ values: Set<MOLocation>)
+
+    @objc(removeLocations:)
+    @NSManaged public func removeFromLocations(_ values: Set<MOLocation>)
+
+}

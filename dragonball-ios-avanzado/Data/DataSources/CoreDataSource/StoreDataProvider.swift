@@ -82,4 +82,21 @@ extension StoreDataProvider {
         }
         save()
     }
+    
+    func add(locations: [Location]) {
+        for location in locations {
+            let newLocation = MOLocation(context: context)
+            newLocation.id = location.id
+            newLocation.latitude = location.latitude
+            newLocation.longitude = location.longitude
+            newLocation.date = location.date
+            
+            /*
+            if let heroId = location.hero?.id {
+                let predicate = NSPredicate(format: "id == %@", heroId)
+                let hero = fetchHeroes(filter: predicate).first
+                newLocation.hero = hero
+            }*/
+        }
+    }
 }

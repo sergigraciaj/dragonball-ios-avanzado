@@ -34,4 +34,8 @@ extension APIErrorResponse {
     static func malformedURL(_ url: String) -> APIErrorResponse {
         APIErrorResponse(url: url, statusCode: -5, message: "Cannot generate the URL")
     }
+    
+    static func heroNotFound(_ id: String) -> APIErrorResponse {
+        APIErrorResponse(url: "", statusCode: -6, message: "Hero with id \(id) not found")
+    }
 }

@@ -50,13 +50,15 @@ extension APIRequest {
         session.request(apiRequest: self) { result in
             do {
                 let data = try result.get()
-                
+
                 if Response.self == Void.self {
                     return completion(.success(() as! Response))
                 } else if Response.self == Data.self {
                     return completion(.success(data as! Response))
                 }
-                
+                print(Response.self, data)
+                var a = try JSONDecoder().decode(Response.self, from: data)
+                print("hey", a)
                 return try completion(.success(JSONDecoder().decode(Response.self, from: data)))
             } catch let error as APIErrorResponse {
                 completion(.failure(error))
