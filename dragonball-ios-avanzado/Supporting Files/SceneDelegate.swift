@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  dragonball-ios-avanzado
-//
-//  Created by Sergio Gracia Jimenez on 22/10/24.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

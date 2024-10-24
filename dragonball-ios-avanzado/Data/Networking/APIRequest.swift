@@ -56,9 +56,7 @@ extension APIRequest {
                 } else if Response.self == Data.self {
                     return completion(.success(data as! Response))
                 }
-                print(Response.self, data)
-                var a = try JSONDecoder().decode(Response.self, from: data)
-                print("hey", a)
+                
                 return try completion(.success(JSONDecoder().decode(Response.self, from: data)))
             } catch let error as APIErrorResponse {
                 completion(.failure(error))

@@ -71,7 +71,7 @@ extension StoreDataProvider {
         }
     }
     
-    func add(heroes: [Hero]) {
+    func add(heroes: [Hero], location: [Location] = []) {
         for hero in heroes {
             let newHero = MOHero(context: context)
             newHero.id = hero.id
@@ -90,13 +90,8 @@ extension StoreDataProvider {
             newLocation.latitude = location.latitude
             newLocation.longitude = location.longitude
             newLocation.date = location.date
-            
-            /*
-            if let heroId = location.hero?.id {
-                let predicate = NSPredicate(format: "id == %@", heroId)
-                let hero = fetchHeroes(filter: predicate).first
-                newLocation.hero = hero
-            }*/
+
+            save()
         }
     }
 }

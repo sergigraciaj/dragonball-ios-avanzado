@@ -1,11 +1,3 @@
-//
-//  MOLocation+CoreDataClass.swift
-//  dragonball-ios-avanzado
-//
-//  Created by Sergio Gracia Jimenez on 23/10/24.
-//
-//
-
 import Foundation
 import CoreData
 

@@ -157,6 +157,7 @@
 				DEVELOPMENT_TEAM = F52LBCNW86;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dragonball-ios-avanzado/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permitir usar la localización del teléfono";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -188,6 +189,7 @@
 				DEVELOPMENT_TEAM = F52LBCNW86;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "dragonball-ios-avanzado/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permitir usar la localización del teléfono";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

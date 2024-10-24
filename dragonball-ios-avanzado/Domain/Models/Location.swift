@@ -1,8 +1,10 @@
+import MapKit
+
 struct Location: Codable {
-    let id: String?
-    let date: String?
-    let latitude: String?
-    let longitude: String?
+    let id: String
+    let date: String
+    let latitude: String
+    let longitude: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -16,5 +18,18 @@ struct Location: Codable {
         self.date = moLocation.date ?? ""
         self.latitude = moLocation.latitude ?? ""
         self.longitude = moLocation.longitude ?? ""
+    }
+}
+
+extension Location {
+    var coordinate: CLLocationCoordinate2D? {
+        guard let latitude = Double(self.latitude),
+              let longitude = Double(self.longitude),
+              abs(latitude) <= 90,
+              abs(longitude) <= 180 else {
+            return nil
+        }
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+              
     }
 }

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroesListViewController" customModule="SWPatterns" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroesListViewController" customModule="dragonball_ios_avanzado" customModuleProvider="target">
             <connections>
                 <outlet property="errorContainer" destination="sR4-Ud-0b4" id="i4Q-UH-3xg"/>
                 <outlet property="errorLabel" destination="KpH-ow-c4s" id="UXj-XM-Vu6"/>
@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jd2-kZ-199">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="689"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Ygl-kh-DHk">
@@ -48,16 +48,23 @@
                         </button>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6W-X3-LB3">
+                    <rect key="frame" x="158" y="773.66666666666663" width="77.333333333333314" height="34.333333333333371"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Logout"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jd2-kZ-199" secondAttribute="bottom" id="3S0-Je-gWB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jd2-kZ-199" secondAttribute="bottom" constant="70" id="3S0-Je-gWB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jd2-kZ-199" secondAttribute="trailing" id="4XT-Lw-aD3"/>
                 <constraint firstItem="sR4-Ud-0b4" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="4uT-bE-muS"/>
+                <constraint firstItem="k6W-X3-LB3" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5XA-AV-izV"/>
                 <constraint firstItem="Ygl-kh-DHk" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="EvM-og-5Zi"/>
                 <constraint firstItem="jd2-kZ-199" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="W2G-zD-w2G"/>
                 <constraint firstItem="Ygl-kh-DHk" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="cK8-ar-zEJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="k6W-X3-LB3" secondAttribute="bottom" constant="10" id="dCd-rb-dlJ"/>
                 <constraint firstItem="sR4-Ud-0b4" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="hAO-bf-odg"/>
                 <constraint firstItem="jd2-kZ-199" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jYX-ER-8za"/>
                 <constraint firstItem="sR4-Ud-0b4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="zWo-jJ-bfC"/>

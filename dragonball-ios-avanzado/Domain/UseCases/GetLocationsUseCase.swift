@@ -19,27 +19,28 @@ final class GetLocationsUseCase: GetLocationsUseCaseContract {
         
         let bdLocations = hero.locations ?? []
         if bdLocations.isEmpty {
+            print("empty locations")
             GetLocationsAPIRequest(id: id)
                 .perform { [weak self] result in
                     switch result {
                     case .success:
-                        print("success use case")
                         DispatchQueue.main.async {
                             do {
-                                let locations = try result.get()
-                                self?.storeDataProvider.add(locations: locations)
-                                let bdLocations = hero.locations ?? []
-                                let domainLocations = bdLocations.map({Location(moLocation: $0)})
-                                completion(.success(domainLocations))
+                                let apiLocations = try result.get()
+                                self?.storeDataProvider.add(locations: apiLocations)
+                                completion(.success(apiLocations))
                             } catch {
                                 completion(.failure(error))
                             }
                         }
                     case .failure(let error):
-                        print(error)
                         completion(.failure(error))
                     }
                 }
+        } else {
+            print("not empty locations")
+            let domainLocations = bdLocations.map({Location(moLocation: $0)})
+            completion(.success(domainLocations))
         }
     }
     

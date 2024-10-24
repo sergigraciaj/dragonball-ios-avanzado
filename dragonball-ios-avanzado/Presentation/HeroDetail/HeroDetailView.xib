@@ -3,18 +3,19 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroDetailViewController" customModule="Dragonball_patrones" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroDetailViewController" customModule="dragonball_ios_avanzado" customModuleProvider="target">
             <connections>
                 <outlet property="errorContainer" destination="uKj-nK-xyV" id="AMs-uB-7Vj"/>
                 <outlet property="errorLabel" destination="0hF-nX-fY0" id="UwC-BR-iCh"/>
                 <outlet property="heroDescription" destination="vSa-at-kkG" id="j5k-g9-U0f"/>
-                <outlet property="heroImage" destination="vOi-8r-agy" id="kFG-Y9-3yl"/>
-                <outlet property="heroName" destination="Hll-bT-jDO" id="7Xs-W9-cD3"/>
+                <outlet property="mapView" destination="V3n-aP-AnS" id="cku-Uf-bXB"/>
                 <outlet property="spinner" destination="i2V-fo-3nK" id="U9O-xN-yrx"/>
                 <outlet property="view" destination="iN0-l3-epB" id="wv4-aZ-fea"/>
             </connections>
@@ -28,29 +29,17 @@
                     <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vOi-8r-agy">
-                    <rect key="frame" x="0.0" y="59" width="393" height="256"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="256" id="1QZ-zc-Fc2"/>
-                    </constraints>
-                </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="z7r-Qm-f42">
-                    <rect key="frame" x="16" y="347" width="361" height="72.666666666666686"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="z7r-Qm-f42" userLabel="Content">
+                    <rect key="frame" x="16" y="331" width="361" height="72.666666666666686"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hll-bT-jDO">
-                            <rect key="frame" x="0.0" y="0.0" width="361" height="0.0"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSa-at-kkG">
-                            <rect key="frame" x="0.0" y="16" width="361" height="6.3333333333333321"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSa-at-kkG">
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="bVZ-xk-6Y5">
-                            <rect key="frame" x="0.0" y="38.333333333333329" width="361" height="34.333333333333329"/>
+                            <rect key="frame" x="0.0" y="28.333333333333332" width="361" height="44.333333333333343"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="Transformations"/>
@@ -60,17 +49,17 @@
                         </button>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="uKj-nK-xyV">
-                    <rect key="frame" x="72.666666666666686" y="381.33333333333326" width="247.66666666666669" height="89.666666666666686"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="uKj-nK-xyV" userLabel="Error">
+                    <rect key="frame" x="72.666666666666671" y="393.66666666666669" width="247.66666666666663" height="89.666666666666686"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ha ocurrido un error inesperado." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hF-nX-fY0">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ha ocurrido un error inesperado." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hF-nX-fY0">
                             <rect key="frame" x="0.0" y="0.0" width="247.66666666666666" height="20.333333333333332"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" systemColor="systemPinkColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlo-pj-gkS">
-                            <rect key="frame" x="0.0" y="55.333333333333329" width="247.66666666666666" height="34.333333333333329"/>
+                            <rect key="frame" x="77.666666666666657" y="55.333333333333314" width="92.666666666666657" height="34.333333333333343"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="Recargar"/>
                             <connections>
@@ -79,16 +68,28 @@
                         </button>
                     </subviews>
                 </stackView>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3n-aP-AnS">
+                    <rect key="frame" x="0.0" y="59" width="393" height="256"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="256" id="xs9-JI-XhM"/>
+                    </constraints>
+                    <standardMapConfiguration key="preferredConfiguration"/>
+                </mapView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vOi-8r-agy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="YMm-jm-u1i"/>
-                <constraint firstItem="vOi-8r-agy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bSf-re-Jyg"/>
-                <constraint firstItem="z7r-Qm-f42" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="fJs-uG-He7"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="z7r-Qm-f42" secondAttribute="trailing" constant="16" id="nay-5a-4bQ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vOi-8r-agy" secondAttribute="trailing" id="xPB-ti-BJy"/>
-                <constraint firstItem="z7r-Qm-f42" firstAttribute="top" secondItem="vOi-8r-agy" secondAttribute="bottom" constant="32" id="xSJ-4w-n3V"/>
+                <constraint firstItem="V3n-aP-AnS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="HeH-XV-ifa"/>
+                <constraint firstItem="uKj-nK-xyV" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="PGx-w0-a4q"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="V3n-aP-AnS" secondAttribute="top" id="QF4-bx-ldZ"/>
+                <constraint firstItem="uKj-nK-xyV" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Zcn-Az-Hug"/>
+                <constraint firstItem="V3n-aP-AnS" firstAttribute="bottom" secondItem="z7r-Qm-f42" secondAttribute="top" constant="-16" id="awW-lE-Bdj"/>
+                <constraint firstItem="uKj-nK-xyV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="72.666666666666671" id="b2g-M7-upG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uKj-nK-xyV" secondAttribute="trailing" constant="72.666666666666686" id="d7a-Gs-7cU"/>
+                <constraint firstItem="z7r-Qm-f42" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="f5T-fk-mFK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="z7r-Qm-f42" secondAttribute="trailing" constant="16" id="feJ-ZF-ltS"/>
+                <constraint firstItem="z7r-Qm-f42" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="hJt-XV-jLD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="V3n-aP-AnS" secondAttribute="trailing" id="uSK-7a-k55"/>
             </constraints>
             <point key="canvasLocation" x="119.84732824427481" y="-12.67605633802817"/>
         </view>

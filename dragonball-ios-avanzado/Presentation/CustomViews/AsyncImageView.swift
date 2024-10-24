@@ -3,15 +3,6 @@ import UIKit
 final class AsyncImageView: UIImageView {
     private var workItem: DispatchWorkItem?
     
-    func setDetailImage(_ string: String) {
-        let url = URL(string: string)!
-        downloadWithURLSession(url: url) { [weak self] image in
-            DispatchQueue.main.async {
-                self?.image = image
-            }
-        }
-    }
-    
     private func downloadWithURLSession(
         url: URL,
         completion: @escaping (UIImage?) -> Void

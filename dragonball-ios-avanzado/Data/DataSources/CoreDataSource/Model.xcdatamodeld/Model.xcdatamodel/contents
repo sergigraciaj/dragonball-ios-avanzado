@@ -6,7 +6,7 @@
         <attribute name="info" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="photo" optional="YES" attributeType="String"/>
-        <relationship name="locations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDLocation" inverseName="hero" inverseEntity="CDLocation"/>
+        <relationship name="locations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDLocation"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -18,7 +18,6 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="latitude" optional="YES" attributeType="String"/>
         <attribute name="longitude" optional="YES" attributeType="String"/>
-        <relationship name="hero" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDHero" inverseName="locations" inverseEntity="CDHero"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
