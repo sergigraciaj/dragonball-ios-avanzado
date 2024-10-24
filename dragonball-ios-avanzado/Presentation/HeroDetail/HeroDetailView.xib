@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroDetailViewController" customModule="dragonball_ios_avanzado" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="nG2-sW-Pbx" id="UTb-CR-4VF"/>
                 <outlet property="errorContainer" destination="uKj-nK-xyV" id="AMs-uB-7Vj"/>
                 <outlet property="errorLabel" destination="0hF-nX-fY0" id="UwC-BR-iCh"/>
                 <outlet property="heroDescription" destination="vSa-at-kkG" id="j5k-g9-U0f"/>
@@ -30,23 +31,14 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="z7r-Qm-f42" userLabel="Content">
-                    <rect key="frame" x="16" y="331" width="361" height="72.666666666666686"/>
+                    <rect key="frame" x="16" y="331" width="361" height="20.333333333333314"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSa-at-kkG">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSa-at-kkG">
                             <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="bVZ-xk-6Y5">
-                            <rect key="frame" x="0.0" y="28.333333333333332" width="361" height="44.333333333333343"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Transformations"/>
-                            <connections>
-                                <action selector="onTransformationButtonTapped:" destination="-1" eventType="touchUpInside" id="9Yq-Sm-vOI"/>
-                            </connections>
-                        </button>
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="uKj-nK-xyV" userLabel="Error">
@@ -68,6 +60,18 @@
                         </button>
                     </subviews>
                 </stackView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nG2-sW-Pbx">
+                    <rect key="frame" x="0.0" y="718" width="393" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="5O1-E0-gLR"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mFB-bo-tbA">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3n-aP-AnS">
                     <rect key="frame" x="0.0" y="59" width="393" height="256"/>
                     <constraints>
@@ -79,6 +83,8 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="nG2-sW-Pbx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="37A-2z-eXT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nG2-sW-Pbx" secondAttribute="trailing" id="8KE-xe-FAb"/>
                 <constraint firstItem="V3n-aP-AnS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="HeH-XV-ifa"/>
                 <constraint firstItem="uKj-nK-xyV" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="PGx-w0-a4q"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="V3n-aP-AnS" secondAttribute="top" id="QF4-bx-ldZ"/>
@@ -88,6 +94,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uKj-nK-xyV" secondAttribute="trailing" constant="72.666666666666686" id="d7a-Gs-7cU"/>
                 <constraint firstItem="z7r-Qm-f42" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="f5T-fk-mFK"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="z7r-Qm-f42" secondAttribute="trailing" constant="16" id="feJ-ZF-ltS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="nG2-sW-Pbx" secondAttribute="bottom" id="gOQ-KU-BNT"/>
                 <constraint firstItem="z7r-Qm-f42" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="hJt-XV-jLD"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="V3n-aP-AnS" secondAttribute="trailing" id="uSK-7a-k55"/>
             </constraints>

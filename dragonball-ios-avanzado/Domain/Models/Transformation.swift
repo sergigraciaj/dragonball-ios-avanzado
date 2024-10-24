@@ -1,8 +1,8 @@
 struct Transformation: Codable{
-    let id: String?
-    let name: String?
-    let photo: String?
-    let info: String?
+    let id: String
+    let name: String
+    let photo: String
+    let info: String
     
     enum CodingKeys: String, CodingKey {
         case id

@@ -10,20 +10,31 @@ final class HeroDetailViewModel {
     let onStateChanged = Binding<LocationDetailState>()
     let hero: Hero
     private(set) var location: [Location] = []
-    private let useCase: GetLocationsUseCaseContract
+    private(set) var transformations: [Transformation] = []
+    private let locationsUseCase: GetLocationsUseCaseContract
+    private let transformationsUseCase: GetTransformationsUseCaseContract
     var annotations: [HeroAnnotation] = []
     
-    init(hero: Hero, useCase: GetLocationsUseCaseContract) {
+    init(hero: Hero, locationsUseCase: GetLocationsUseCaseContract, transformationsUseCase: GetTransformationsUseCaseContract) {
         self.hero = hero
-        self.useCase = useCase
+        self.locationsUseCase = locationsUseCase
+        self.transformationsUseCase = transformationsUseCase
     }
     
     func load(id: String) {
         onStateChanged.update(newValue: .loading)
-        useCase.execute(id: id) { [weak self] result in
+        locationsUseCase.execute(id: id) { [weak self] result in
             do {
                 self?.location = try result.get()
                 self?.createAnnotations()
+                self?.onStateChanged.update(newValue: .success)
+            } catch {
+                self?.onStateChanged.update(newValue: .error(reason: error.localizedDescription))
+            }
+        }
+        transformationsUseCase.execute(id: id) { [weak self] result in
+            do {
+                self?.transformations = try result.get()
                 self?.onStateChanged.update(newValue: .success)
             } catch {
                 self?.onStateChanged.update(newValue: .error(reason: error.localizedDescription))

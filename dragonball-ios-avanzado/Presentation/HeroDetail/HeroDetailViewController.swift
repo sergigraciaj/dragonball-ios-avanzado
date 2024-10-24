@@ -1,13 +1,14 @@
 import UIKit
 import MapKit
 
-final class HeroDetailViewController: UIViewController {
+final class HeroDetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet private weak var spinner: UIActivityIndicatorView!
     @IBOutlet private weak var heroDescription: UILabel!
     @IBOutlet private weak var errorLabel: UILabel!
     @IBOutlet private weak var errorContainer: UIStackView!
-    @IBOutlet weak var mapView: MKMapView!
-
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    
     private var locationManager: CLLocationManager = CLLocationManager()
     
     private let viewModel: HeroDetailViewModel
@@ -31,6 +32,10 @@ final class HeroDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        collectionView.register(TransformationViewCell.nib, forCellWithReuseIdentifier: TransformationViewCell.reuseIdentifier)
         
         configureMap()
         bind()
@@ -40,11 +45,6 @@ final class HeroDetailViewController: UIViewController {
 
     @IBAction func onRetryTapped(_ sender: Any) {
         viewModel.load(id: self.viewModel.hero.id)
-    }
-    
-    @IBAction func onTransformationButtonTapped(_ sender: Any) {
-        print("transformation")
-        //self.navigationController?.show(HeroTransformationListBuilder().build(hero: self.hero), sender: self)
     }
     
     // MARK: - States
@@ -68,6 +68,7 @@ final class HeroDetailViewController: UIViewController {
         errorLabel.text = reason
         
         heroDescription.isHidden = true
+        collectionView.isHidden = true
     }
     
     private func renderLoading() {
@@ -76,6 +77,7 @@ final class HeroDetailViewController: UIViewController {
         errorContainer.isHidden = true
         
         heroDescription.isHidden = true
+        collectionView.isHidden = true
     }
     
     private func renderSuccess() {
@@ -85,6 +87,8 @@ final class HeroDetailViewController: UIViewController {
         
         heroDescription.isHidden = false
         heroDescription.text = self.viewModel.hero.info
+        collectionView.isHidden = false
+        collectionView.reloadData()
         
         updateMapAnnotations()
     }
@@ -116,6 +120,27 @@ final class HeroDetailViewController: UIViewController {
             break
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.viewModel.transformations.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TransformationViewCell.reuseIdentifier, for: indexPath)
+        if let cell = cell as? TransformationViewCell {
+            let transformation = viewModel.transformations[indexPath.row]
+            cell.setPhoto(transformation.photo)
+            cell.setTransformationName(transformation.name)
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let transformation = viewModel.transformations[indexPath.row]
+        //navigationController?.show(TransformationBuilder(transformation: transformation).build(), sender: self)
+        self.present(TransformationBuilder(transformation: transformation).build(), animated: true)
+    }
+    
 }
 
 extension HeroDetailViewController: MKMapViewDelegate {

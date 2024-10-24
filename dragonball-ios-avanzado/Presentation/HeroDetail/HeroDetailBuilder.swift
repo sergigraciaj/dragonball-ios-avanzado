@@ -8,8 +8,9 @@ final class HeroDetailBuilder {
     }
     
     func build() -> UIViewController {
-        let useCase = GetLocationsUseCase()
-        let viewModel = HeroDetailViewModel(hero: hero, useCase: useCase)
+        let locationsUseCase = GetLocationsUseCase()
+        let transformationsUseCase = GetTransformationsUseCase()
+        let viewModel = HeroDetailViewModel(hero: hero, locationsUseCase: locationsUseCase, transformationsUseCase: transformationsUseCase)
         let viewController = HeroDetailViewController(viewModel: viewModel)
         viewController.modalPresentationStyle = .fullScreen
         return viewController
