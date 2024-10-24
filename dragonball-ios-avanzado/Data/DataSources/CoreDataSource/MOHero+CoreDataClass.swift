@@ -18,6 +18,7 @@ extension MOHero {
     @NSManaged public var favorite: Bool
     @NSManaged public var photo: String?
     @NSManaged public var locations: Set<MOLocation>?
+    @NSManaged public var transformations: Set<MOTransformation>?
 }
 
 extension MOHero {
@@ -33,5 +34,26 @@ extension MOHero {
 
     @objc(removeLocations:)
     @NSManaged public func removeFromLocations(_ values: Set<MOLocation>)
+
+}
+
+// MARK: Generated accessors for transformations
+extension MOHero {
+
+    @objc(addTransformationsObject:)
+    @NSManaged public func addToTransformations(_ value: MOTransformation)
+
+    @objc(removeTransformationsObject:)
+    @NSManaged public func removeFromTransformations(_ value: MOTransformation)
+
+    @objc(addTransformations:)
+    @NSManaged public func addToTransformations(_ values: Set<MOTransformation>)
+
+    @objc(removeTransformations:)
+    @NSManaged public func removeFromTransformations(_ values: Set<MOTransformation>)
+
+}
+
+extension MOHero : Identifiable {
 
 }

@@ -95,6 +95,16 @@ extension StoreDataProvider {
         }
     }
     
+    func add(transformations: [Transformation]) {
+        for transformation in transformations {
+            let newTransformation = MOTransformation(context: context)
+            newTransformation.id = transformation.id
+            newTransformation.name = transformation.name
+            newTransformation.info = transformation.info
+            newTransformation.photo = transformation.photo
+        }
+    }
+    
     func clearBBDD() {
         let batchDeleteHeroes = NSBatchDeleteRequest(fetchRequest: MOHero.fetchRequest())
         let batchDeleteLocations = NSBatchDeleteRequest(fetchRequest: MOLocation.fetchRequest())
