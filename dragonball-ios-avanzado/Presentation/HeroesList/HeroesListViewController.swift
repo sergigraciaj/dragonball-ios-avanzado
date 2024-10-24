@@ -89,6 +89,11 @@ final class HeroesListViewController: UIViewController, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let hero = viewModel.heroes[indexPath.row]
-        self.navigationController?.show(HeroDetailBuilder(hero: hero).build(), sender: self)
+        navigationController?.show(HeroDetailBuilder(hero: hero).build(), sender: self)
+    }
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        viewModel.logout()
+        navigationController?.pushViewController(LoginBuilder().build(), animated: true)
     }
 }

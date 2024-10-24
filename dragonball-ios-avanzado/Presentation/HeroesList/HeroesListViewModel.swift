@@ -10,9 +10,16 @@ final class HeroesListViewModel {
     let onStateChanged = Binding<HeroesListState>()
     private(set) var heroes: [Hero] = []
     private let useCase: GetAllHeroesUseCaseContract
+    private var storeDataProvider: StoreDataProvider
+    private let secureStorage: SecureDataStoreProtocol
     
-    init(useCase: GetAllHeroesUseCaseContract) {
+    init(useCase: GetAllHeroesUseCaseContract,
+         storeDataProvider: StoreDataProvider = .shared,
+         secureStorage: SecureDataStoreProtocol = SecureDataStore.shared
+    ) {
         self.useCase = useCase
+        self.storeDataProvider = storeDataProvider
+        self.secureStorage = secureStorage
     }
     
     func load() {
@@ -25,5 +32,10 @@ final class HeroesListViewModel {
                 self?.onStateChanged.update(newValue: .error(reason: error.localizedDescription))
             }
         }
+    }
+    
+    func logout() {
+        self.storeDataProvider.clearBBDD()
+        self.secureStorage.deleteToken()
     }
 }

@@ -52,6 +52,9 @@
                     <rect key="frame" x="158" y="773.66666666666663" width="77.333333333333314" height="34.333333333333371"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Logout"/>
+                    <connections>
+                        <action selector="logoutTapped:" destination="-1" eventType="touchUpInside" id="Vnp-fd-NJK"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
